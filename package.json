@@ -1,7 +1,7 @@
 {
   "name": "@rocko/packaging-helper",
   "description": "Provides packaging support",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "rocko1204",
   "bugs": "https://github.com/Rocko1204/package-helper-cli/issues",
   "dependencies": {
@@ -85,6 +85,7 @@
     "posttest": "eslint src/**/*.ts test/**/*.ts",
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts --require ts-node/register mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "release": "standard-version"
   }
 }
