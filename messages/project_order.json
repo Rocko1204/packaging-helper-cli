@@ -1,0 +1,4 @@
+{
+    "commandDescription": "The sequence is elementary when deploying and validating a package. The packages from the dependencies of a package must come first in order so that they can be deployed and validated first. This command checks the sfdx-project.json for the correct order and optionally corrects the sfdx-project.json directly.",
+    "changeFlagDescription": "Corrects the order of the packages and updates the sfdx-project.json"
+  }

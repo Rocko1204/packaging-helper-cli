@@ -1,0 +1,4 @@
+{
+    "commandDescription": "So that a package can be deployed and validated, the dependencies for the dependencies must also be stored in the sfdx-project.json file. This command checks the dependencies for the dependencies and outputs them in the terminal. The flag can also be used to update the sfdx directly.",
+    "changeFlagDescription": "add the missing dependencies of the packages and updates the sfdx-project.json"
+  }

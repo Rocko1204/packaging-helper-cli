@@ -1,0 +1,1162 @@
+{
+   "packageDirectories": [
+      {
+         "path": "force-app-deps",
+         "default": false,
+         "package": "src-core-org-deps",
+         "versionNumber": "0.1.0",
+         "preDeploymentScript": "./scripts/org-preDeploymentScript.sh",
+         "ignoreOnStage": [
+            "quickbuild",
+            "validate",
+            "deploy",
+            "build"
+         ],
+         "dependencies": [
+            {
+               "package": "NE"
+            },
+            {
+               "package": "Bit2WinHUB"
+            },
+            {
+               "package": "bit2flow"
+            },
+            {
+               "package": "B2WExtCat"
+            },
+            {
+               "package": "Bit2Archetypes"
+            },
+            {
+               "package": "sfds"
+            },
+            {
+               "package": "efl"
+            },
+            {
+               "package": "datamask"
+            },
+            {
+               "package": "sf_com_apps"
+            },
+            {
+               "package": "sf_chttr_apps"
+            },
+            {
+               "package": "CRMWebClient"
+            },
+            {
+               "package": "et4ae5"
+            },
+            {
+               "package": "qualtrics"
+            }
+         ]
+      },
+      {
+         "path": "src/core/main",
+         "package": "core",
+         "versionName": "Core Data Model",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false
+      },
+      {
+         "path": "src/extensions/managed-packages-extensions/bit2win-extension/main",
+         "package": "bit2win-extension",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "NE"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/frameworks/framework-trigger-core/main",
+         "package": "trigger-core",
+         "versionName": "multiorg 1.0.0",
+         "default": false,
+         "versionNumber": "1.0.0.NEXT"
+      },
+      {
+         "path": "src/frameworks/framework-query-core/main",
+         "package": "framework-query-core",
+         "versionName": "multiorg 1.0.0",
+         "default": false,
+         "versionNumber": "1.0.0.NEXT"
+      },
+      {
+         "path": "src/frameworks/framework-api-gateway/main",
+         "package": "api-gateway",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false
+      },
+      {
+         "path": "src/frameworks/framework-force-di/main",
+         "package": "force-di",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false
+      },
+      {
+         "path": "src/utils/flow-utility/main",
+         "package": "flow-utility",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/sales/payback/payback-core/main",
+         "package": "payback-core",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "NE"
+            }
+         ]
+      },
+      {
+         "path": "src/order-to-cash/collection/collection-core",
+         "package": "collection-core",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false
+      },
+      {
+         "path": "src/integrations/outbound/mulesoft/api-out-contracts/main",
+         "package": "api-out-contracts",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/integrations/outbound/mulesoft/api-out-contract-extension/main",
+         "package": "api-out-contracts-extension",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/integrations/outbound/mulesoft/api-out-grids/main",
+         "package": "api-out-grids",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/integrations/outbound/mulesoft/api-out-zipcode-areas/main",
+         "package": "api-out-zipcode-areas",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/integrations/outbound/service/api-service-update-contact/main",
+         "package": "api-service-update-contact",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/team-hierarchy-app/team-hierarchy-app-core/main/default",
+         "package": "team-hierachy-app-core",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "trigger-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/team-hierarchy-app/team-hierarchy-app-extension/main/default",
+         "package": "team-hierachy-app-extension",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "trigger-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "team-hierachy-app-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "NE"
+            },
+            {
+               "package": "qualtrics"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/integrations/outbound/sap/api-out-sap-connector/main",
+         "package": "api-out-sap-connector",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "preDeploymentScript": "src/integrations/outbound/sap/api-out-sap-connector/scripts/pre-deployment.sh",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/er2s/er2s-core/main",
+         "package": "er2s-core",
+         "versionName": "ver 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-sap-connector",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/vera-tool/main",
+         "package": "vera-tool",
+         "versionName": "MVP with config menu",
+         "versionNumber": "1.1.0.NEXT"
+      },
+      {
+         "path": "src/service/case/next-steps-component/main",
+         "package": "next-steps-component",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/er2s/er2s-next-steps-component/main",
+         "package": "er2s-next-steps-component",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-sap-connector",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "er2s-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/case-ner-data/main",
+         "package": "case-ner-data",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/banking-details/main",
+         "package": "banking-details",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "case-ner-data",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/amend-payment/main",
+         "package": "amend-payment",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "case-ner-data",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/account-overview/main",
+         "package": "account-overview",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts-extension",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/case-status-component/main",
+         "package": "case-status-component",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/authentication/main",
+         "package": "authentication",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-service-update-contact",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/utils/public-group-assignment-tool/main/default",
+         "package": "public-group-assignment-tool",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/output-management/output-management-service/main",
+         "package": "output-management-service",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "framework-query-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "NE"
+            },
+            {
+               "package": "bit2win-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "payback-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/change-personal-data/main",
+         "package": "change-personal-data",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "ignoreOnStage": [
+            "validate",
+            "quickbuild",
+            "deploy",
+            "build"
+         ],
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-service-update-contact",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "framework-query-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "NE"
+            },
+            {
+               "package": "bit2win-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "payback-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/service/case/goodwill-payment/main",
+         "package": "goodwill-payment",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "collection-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "case-ner-data",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "banking-details",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/extensions/managed-packages-extensions/qualtrics-extension/main/default",
+         "package": "qualtrics-extension",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "qualtrics"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/utils/verify-case-subflow/main",
+         "package": "verify-case-subflow",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/utils/address-search-component/main",
+         "package": "address-search-component",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false,
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-grids",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-zipcode-areas",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/service/case/manage-address/main",
+         "package": "manage-address",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "ignoreOnStage": [
+            "validate",
+            "quickbuild",
+            "deploy",
+            "build"
+         ],
+         "default": false,
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-gateway",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "flow-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "next-steps-component",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-contracts",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-grids",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-zipcode-areas",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "address-search-component",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ]
+      },
+      {
+         "path": "src/utils/ui-utility/main",
+         "package": "ui-utility",
+         "versionName": "ver 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "default": false
+      },
+      {
+         "path": "src/er2s/er2s-360-case-view/main",
+         "package": "er2s-360-case-view",
+         "versionName": "ver 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "framework-query-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "api-out-sap-connector",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "ui-utility",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "er2s-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/survey-response-dashboard/main/default",
+         "package": "survey-response-dashboard",
+         "versionName": "multiorg 1.0.0",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "qualtrics"
+            },
+            {
+               "package": "qualtrics-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "trigger-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "team-hierachy-app-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "NE"
+            },
+            {
+               "package": "qualtrics"
+            },
+            {
+               "package": "team-hierachy-app-extension",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/logger-core/main",
+         "package": "logger-core",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "force-di",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/misc/logger-splunk/main",
+         "package": "logger-splunk",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "postDeploymentScript": "src/misc/logger-splunk/scripts/post-deployment.sh",
+         "dependencies": [
+            {
+               "package": "force-di",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "logger-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "src/integrations/inbound/api-in-letter-enrichment/main",
+         "package": "api-in-letter-enrichment",
+         "versionName": "ver 0.1",
+         "versionNumber": "1.0.0.NEXT",
+         "dependencies": [
+            {
+               "package": "core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "framework-query-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "NE"
+            },
+            {
+               "package": "bit2win-extension",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "payback-core",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "output-management-service",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "force-di",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "logger-splunk",
+               "versionNumber": "1.0.0.LATEST"
+            },
+            {
+               "package": "logger-core",
+               "versionNumber": "1.0.0.LATEST"
+            }
+         ],
+         "default": false
+      },
+      {
+         "path": "force-app-pre",
+         "default": false,
+         "package": "src-core-crm-pre",
+         "versionNumber": "0.1.0",
+         "preDeploymentScript": "./scripts/pre-preDeploymentScript.sh",
+         "ignoreOnStage": [
+            "quickbuild",
+            "validate",
+            "deploy",
+            "build"
+         ],
+         "dependencies": [
+            {
+               "package": "NE"
+            },
+            {
+               "package": "Bit2WinHUB"
+            },
+            {
+               "package": "bit2flow"
+            },
+            {
+               "package": "B2WExtCat"
+            },
+            {
+               "package": "Bit2Archetypes"
+            },
+            {
+               "package": "sfds"
+            },
+            {
+               "package": "efl"
+            },
+            {
+               "package": "datamask"
+            },
+            {
+               "package": "sf_com_apps"
+            },
+            {
+               "package": "sf_chttr_apps"
+            },
+            {
+               "package": "CRMWebClient"
+            },
+            {
+               "package": "et4ae5"
+            },
+            {
+               "package": "qualtrics"
+            }
+         ]
+      },
+      {
+         "path": "force-app",
+         "default": false,
+         "package": "src-core-crm",
+         "versionNumber": "0.1.0",
+         "skipCoverageValidation": true,
+         "preDeploymentScript": "./scripts/main-preDeploymentScript.sh",
+         "postDeploymentScript": "./scripts/main-postDeploymentScript.sh",
+         "ignoreOnStage": [
+            "validate",
+            "quickbuild",
+            "validate",
+            "deploy",
+            "build"
+         ],
+         "dependencies": [
+            {
+               "package": "NE"
+            },
+            {
+               "package": "Bit2WinHUB"
+            },
+            {
+               "package": "bit2flow"
+            },
+            {
+               "package": "B2WExtCat"
+            },
+            {
+               "package": "Bit2Archetypes"
+            },
+            {
+               "package": "sfds"
+            },
+            {
+               "package": "efl"
+            },
+            {
+               "package": "datamask"
+            },
+            {
+               "package": "sf_com_apps"
+            },
+            {
+               "package": "sf_chttr_apps"
+            },
+            {
+               "package": "CRMWebClient"
+            },
+            {
+               "package": "et4ae5"
+            },
+            {
+               "package": "qualtrics"
+            }
+         ]
+      },
+      {
+         "path": "force-app-post",
+         "default": false,
+         "package": "src-core-crm-post",
+         "versionNumber": "0.1.0",
+         "preDeploymentScript": "./scripts/post-preDeploymentScript.sh",
+         "ignoreOnStage": [
+            "quickbuild",
+            "validate",
+            "deploy",
+            "build"
+         ],
+         "dependencies": [
+            {
+               "package": "NE"
+            },
+            {
+               "package": "Bit2WinHUB"
+            },
+            {
+               "package": "bit2flow"
+            },
+            {
+               "package": "B2WExtCat"
+            },
+            {
+               "package": "Bit2Archetypes"
+            },
+            {
+               "package": "sfds"
+            },
+            {
+               "package": "efl"
+            },
+            {
+               "package": "datamask"
+            },
+            {
+               "package": "sf_com_apps"
+            },
+            {
+               "package": "sf_chttr_apps"
+            },
+            {
+               "package": "CRMWebClient"
+            },
+            {
+               "package": "et4ae5"
+            },
+            {
+               "package": "qualtrics"
+            }
+         ]
+      },
+      {
+         "path": "src-temp",
+         "package": "src-temp",
+         "versionName": "Version 0.1.0",
+         "versionNumber": "0.1.0",
+         "default": true,
+         "ignoreOnStage": [
+            "prepare",
+            "validate",
+            "quickbuild",
+            "build"
+         ]
+      }
+   ],
+   "namespace": "",
+   "sfdcLoginUrl": "https://login.salesforce.com",
+   "sourceApiVersion": "53.0",
+   "packageAliases": {
+      "core": "0Ho090000004CVaCAM",
+      "trigger-core": "0Ho090000004CW9CAM",
+      "vera-tool": "0Ho090000004CT0CAM",
+      "api-gateway": "0Ho090000004CTACA2",
+      "send-letter-inspire": "0Ho090000004CUcCAM",
+      "flow-utility": "0Ho090000004CUXCA2",
+      "api-out-contracts": "0Ho090000004CV6CAM",
+      "api-out-bank-details": "0Ho090000004CVBCA2",
+      "team-hierachy-app-extension": "0Ho090000004CUmCAM",
+      "NE": "04t3w000001E0N2AAK",
+      "Bit2WinHUB": "04t1a0000006IhcAAE",
+      "bit2flow": "04t1n000001YVVGAA4",
+      "B2WExtCat": "04t24000000cBgDAAU",
+      "Bit2Archetypes": "04t1Q000000s40aQAA",
+      "sfds": "04t2x000002udlSAAQ",
+      "efl": "04t5w000005b2U4AAI",
+      "datamask": "04t3k0000027CCnAAM",
+      "sf_com_apps": "04t30000001DUvrAAG",
+      "sf_chttr_apps": "04t3A000001DdcGQAS",
+      "CRMWebClient": "04t1a0000006JCjAAM",
+      "et4ae5": "04t6S000000l0HZQAY",
+      "qualtrics": "04t2J000000AlVOQA0",
+      "next-steps-component": "0Ho090000004CVQCA2",
+      "er2s-next-steps-component": "0Ho090000004CZNCA2",
+      "case-ner-data": "0Ho090000004CVfCAM",
+      "banking-details": "0Ho090000004CVpCAM",
+      "amend-payment": "0Ho090000004CVkCAM",
+      "account-overview": "0Ho090000004CWYCA2",
+      "api-service-update-contact": "0Ho090000004CVzCAM",
+      "team-hierachy-app-core": "0Ho090000004CUhCAM",
+      "change-personal-data": "0Ho090000004CWECA2",
+      "case-status-component": "0Ho090000004CVuCAM",
+      "framework-query-core": "0Ho090000004CWsCAM",
+      "authentication": "0Ho090000004CWTCA2",
+      "api-out-contracts-extension": "0Ho090000004CWnCAM",
+      "goodwill-payment": "0Ho090000004CXMCA2",
+      "force-di": "0Ho090000004CXgCAM",
+      "survey-response-dashboard": "0Ho090000004CXRCA2",
+      "output-management-service": "0Ho090000004CXCCA2",
+      "qualtrics-extension": "0Ho090000004CXRCA2",
+      "public-group-assignment-tool": "0Ho090000004CXbCAM",
+      "multi-org-settings": "0Ho090000004CXvCAM",
+      "api-out-grids": "0Ho090000004CYKCA2",
+      "api-out-zipcode-areas": "0Ho090000004CYPCA2",
+      "address-search-component": "0Ho090000004CYUCA2",
+      "manage-address": "0Ho090000004CWJCA2",
+      "bit2win-extension": "0Ho090000004CYFCA2",
+      "api-in-letter-enrichment": "0Ho090000004CX7CAM",
+      "verify-case-subflow": "0Ho090000004CYtCAM",
+      "payback-core": "0Ho090000004CZDCA2",
+      "collection-core": "0Ho090000004CZICA2",
+      "ui-utility": "0Ho090000004CZ8CAM",
+      "er2s-core": "0Ho090000004CYyCAM",
+      "er2s-360-case-view": "0Ho090000004CZ3CAM",
+      "api-out-sap-connector": "0Ho090000004CXlCAM",
+      "logger-core": "0Ho090000004CZhCAM",
+      "logger-splunk": "0Ho090000004CZmCAM"
+   },
+   "plugins": {
+      "sfdx-plugin-prettier": {
+         "enabled": true
+      }
+   }
+}

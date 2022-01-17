@@ -1,0 +1,5 @@
+{
+    "commandDescription": "Searches in the default path against the 'src' path for duplicate metadata. Duplicates are displayed in the terminal and can be deleted with the flag. Default path is 'force-app'. With the path flag, however, any paths can be specified.",
+    "pathFlagDescription": "custom paths to remove duplicate metadata.several path possible with ','delimiter",
+    "changeFlagDescription": "remove metadata from default/input path"
+}
