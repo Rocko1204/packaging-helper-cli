@@ -1,7 +1,7 @@
 {
-  "name": "@rocko/packaging-helper",
+  "name": "@rocko1204/packaging-helper",
   "description": "Provides packaging support",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "rocko1204",
   "bugs": "https://github.com/Rocko1204/package-helper-cli/issues",
   "dependencies": {
@@ -62,7 +62,8 @@
   ],
   "homepage": "https://github.com/Rocko1204/package-helper-cli",
   "keywords": [
-    "sfdx-plugin"
+    "sfdx-plugin",
+    "sfdx-package"
   ],
   "license": "MIT",
   "oclif": {
