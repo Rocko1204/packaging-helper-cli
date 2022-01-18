@@ -21,7 +21,7 @@ $ npm install -g @rocko/packaging-helper
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-@rocko/packaging-helper/0.0.0 win32-x64 node-v14.17.0
+@rocko/packaging-helper/0.0.1 win32-x64 node-v14.17.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -29,25 +29,30 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx rocko:meta:remove [-p <string>] [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rockometaremove--p-string--c---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx rocko:meta:remove -s <string> -t <string> [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rockometaremove--s-string--t-string--c---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx rocko:project:dep [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rockoprojectdep--c---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx rocko:project:order [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-rockoprojectorder--c---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
-## `sfdx rocko:meta:remove [-p <string>] [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx rocko:meta:remove -s <string> -t <string> [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Searches in the default path against the 'src' path for duplicate metadata. Duplicates are displayed in the terminal and can be deleted with the flag. Default path is 'force-app'. With the path flag, however, any paths can be specified.
+removes all douplicates from source dir that exists as metadata in target dir
 
 ```
 USAGE
-  $ sfdx rocko:meta:remove [-p <string>] [-c] [--json] [--loglevel 
+  $ sfdx rocko:meta:remove -s <string> -t <string> [-c] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
   -c, --change                                                                      remove metadata from default/input
                                                                                     path
 
-  -p, --path=path                                                                   custom paths to remove duplicate
-                                                                                    metadata.several path possible with
+  -s, --sourcedir=sourcedir                                                         (required) required source dir path
+                                                                                    to search for duplicates.several
+                                                                                    path possible with ','delimiter
+
+  -t, --targetdir=targetdir                                                         (required) required target dir path
+                                                                                    to check the results from source
+                                                                                    dir.several path possible with
                                                                                     ','delimiter
 
   --json                                                                            format output as json
@@ -55,11 +60,12 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
 
-EXAMPLE
-  sfdx rocko:meta:remove --change,sfdx rocko:meta:remove --patch 'force-app-pre'
+EXAMPLES
+  sfdx rocko:meta:remove -- sourcedir 'force-app' --targetdir 'src'
+  sfdx rocko:meta:remove -s 'force-app' -t 'src -c
 ```
 
-_See code: [src/commands/rocko/meta/remove.ts](https://github.com/R6736/packaging-helper/blob/v0.0.0/src/commands/rocko/meta/remove.ts)_
+_See code: [src/commands/rocko/meta/remove.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/meta/remove.ts)_
 
 ## `sfdx rocko:project:dep [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -84,7 +90,7 @@ EXAMPLE
   sfdx rocko:project:dependency
 ```
 
-_See code: [src/commands/rocko/project/dep.ts](https://github.com/R6736/packaging-helper/blob/v0.0.0/src/commands/rocko/project/dep.ts)_
+_See code: [src/commands/rocko/project/dep.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/project/dep.ts)_
 
 ## `sfdx rocko:project:order [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -108,7 +114,7 @@ EXAMPLE
   sfdx rocko:project:order --change
 ```
 
-_See code: [src/commands/rocko/project/order.ts](https://github.com/R6736/packaging-helper/blob/v0.0.0/src/commands/rocko/project/order.ts)_
+_See code: [src/commands/rocko/project/order.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/project/order.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

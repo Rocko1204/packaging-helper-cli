@@ -16,16 +16,24 @@ export default class MetaRemove extends SfdxCommand {
   // get Description From Command JSON
   public static description = messages.getMessage('commandDescription');
   // example for Terminal
-  public static examples = [`sfdx rocko:meta:remove --change,sfdx rocko:meta:remove --patch 'force-app-pre'`];
+  public static examples = [
+    `sfdx rocko:meta:remove -- sourcedir 'force-app' --targetdir 'src'`,
+    `sfdx rocko:meta:remove -s 'force-app' -t 'src -c`
+  ];
   // Required Settings
   protected static requiresProject = true;
 
   protected static flagsConfig = {
     // flag with a value (-n, --name=VALUE)
-    path: flags.string({
-      char: 'p',
-      required: false,
-      description: messages.getMessage('pathFlagDescription'),
+    sourcedir: flags.string({
+      char: 's',
+      required: true,
+      description: messages.getMessage('sourcedirFlagDescription'),
+    }),
+    targetdir: flags.string({
+      char: 't',
+      required: true,
+      description: messages.getMessage('targetdirFlagDescription'),
     }),
     change: flags.boolean({
       char: 'c',
@@ -49,7 +57,7 @@ export default class MetaRemove extends SfdxCommand {
         {
           title: 'validate metadata from project',
           task: async () => {
-            this.metaResult = await this.metaValidation.build(this.flags.path);
+            this.metaResult = await this.metaValidation.build(this.flags.sourcedir, this.flags.targetdir);
             if (this.metaResult.hasError) {
               throw new Error(this.metaResult.message);
             }
@@ -82,12 +90,12 @@ export default class MetaRemove extends SfdxCommand {
         this.exit(1);
       } else if (this.metaResult.metaCount > 0 && this.flags.change) {
         for (const value of this.metaResult.tableMap.values()) {
-            this.removeTable.push(value);
-          }  
+          this.removeTable.push(value);
+        }
         this.ux.log(this.removeTable.toString());
         this.ux.styledHeader(`remove ${this.metaResult.metaCount} components`);
         this.ux.styledHeader('process finished and remove done!');
-      }else {
+      } else {
         this.ux.styledHeader('process finished!');
         this.ux.styledHeader('all done! metadata ok. Nothing to remove');
       }

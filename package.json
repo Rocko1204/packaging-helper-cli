@@ -1,7 +1,7 @@
 {
   "name": "@rocko/packaging-helper",
   "description": "Provides packaging support",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "rocko1204",
   "bugs": "https://github.com/Rocko1204/package-helper-cli/issues",
   "dependencies": {

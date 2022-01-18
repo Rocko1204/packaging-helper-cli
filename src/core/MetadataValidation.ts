@@ -10,16 +10,14 @@ export class MetadataValidation {
   private result = {} as MetadataResult;
   private forceappComponentsToDelete: SourceComponent[] = [];
 
-  public build(path: string): MetadataResult {
+  public build(sourcedir: string, targetdir: string): MetadataResult {
     try {
       this.resolver = new MetadataResolver();
       this.result.tableMap = new Map<string, AnyArray>();
-      const forceappComponents = path
-        ? this.getComponentsWithChildsFromPaths([path])
-        : this.getComponentsWithChildsFromPaths(['force-app']);
-      const srcComponentMap = this.getComponentsWithChildsFromPaths(['src']).map((comp) => this.simpleKey(comp));
-      this.forceappComponentsToDelete = forceappComponents.filter((comp) =>
-        srcComponentMap.includes(this.simpleKey(comp)) && comp.type.id !== 'translations'
+      const forceappComponents = this.getComponentsWithChildsFromPaths([sourcedir]);
+      const srcComponentMap = this.getComponentsWithChildsFromPaths([targetdir]).map((comp) => this.simpleKey(comp));
+      this.forceappComponentsToDelete = forceappComponents.filter(
+        (comp) => srcComponentMap.includes(this.simpleKey(comp)) && comp.type.id !== 'translations'
       );
       this.forceappComponentsToDelete.forEach((comp) => {
         const tableRow = [comp.type.id, comp.fullName] as AnyArray;
