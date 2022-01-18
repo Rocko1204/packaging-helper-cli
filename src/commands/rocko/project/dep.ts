@@ -11,7 +11,7 @@ Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = Messages.loadMessages('@rocko/packaging-helper', 'project_dep');
+const messages = Messages.loadMessages('@rocko1204/packaging-helper', 'project_dep');
 
 export default class ProjectDep extends SfdxCommand {
   // get Description From Command JSON

@@ -17,11 +17,11 @@ Provides packaging support
 <!-- install -->
 <!-- usage -->
 ```sh-session
-$ npm install -g @rocko/packaging-helper
+$ npm install -g @rocko1204/packaging-helper
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-@rocko/packaging-helper/0.0.1 win32-x64 node-v14.17.0
+@rocko1204/packaging-helper/0.0.2 win32-x64 node-v14.17.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -65,7 +65,7 @@ EXAMPLES
   sfdx rocko:meta:remove -s 'force-app' -t 'src -c
 ```
 
-_See code: [src/commands/rocko/meta/remove.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/meta/remove.ts)_
+_See code: [src/commands/rocko/meta/remove.ts](https://github.com/R6736/packaging-helper/blob/v0.0.2/src/commands/rocko/meta/remove.ts)_
 
 ## `sfdx rocko:project:dep [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -90,7 +90,7 @@ EXAMPLE
   sfdx rocko:project:dependency
 ```
 
-_See code: [src/commands/rocko/project/dep.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/project/dep.ts)_
+_See code: [src/commands/rocko/project/dep.ts](https://github.com/R6736/packaging-helper/blob/v0.0.2/src/commands/rocko/project/dep.ts)_
 
 ## `sfdx rocko:project:order [-c] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -114,7 +114,7 @@ EXAMPLE
   sfdx rocko:project:order --change
 ```
 
-_See code: [src/commands/rocko/project/order.ts](https://github.com/R6736/packaging-helper/blob/v0.0.1/src/commands/rocko/project/order.ts)_
+_See code: [src/commands/rocko/project/order.ts](https://github.com/R6736/packaging-helper/blob/v0.0.2/src/commands/rocko/project/order.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

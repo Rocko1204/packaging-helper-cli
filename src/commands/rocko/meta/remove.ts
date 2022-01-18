@@ -10,7 +10,7 @@ Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = Messages.loadMessages('@rocko/packaging-helper', 'meta_remove');
+const messages = Messages.loadMessages('@rocko1204/packaging-helper', 'meta_remove');
 
 export default class MetaRemove extends SfdxCommand {
   // get Description From Command JSON
