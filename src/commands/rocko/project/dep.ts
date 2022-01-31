@@ -32,8 +32,8 @@ export default class ProjectDep extends SfdxCommand {
 
 
   private dependencyTable = new Table({
-    head: ['Id', 'Current Package', 'Add Dependency'],
-    colWidths: [5, 35, 35],
+    head: ['Id', 'Current Package', 'Add Dependency', 'New Version', 'New Position'],
+    colWidths: [5, 35, 35, 15, 15],
   });
 
   private projectValidation = new ProjectValidation();

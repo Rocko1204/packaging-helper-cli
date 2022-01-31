@@ -27,3 +27,9 @@ export interface TableResult {
   depId: number;
   depName: string;
 }
+
+export interface PackageDependency {
+  package: string;
+  version: string;
+  index: number;
+}

@@ -3,8 +3,7 @@
 import { SfdxProjectJson, PackageDir } from '@salesforce/core';
 import { ProjectJson } from '@salesforce/core/lib/sfdxProject';
 import { ensureArray, JsonMap, AnyArray } from '@salesforce/ts-types';
-import { ProjectResult } from '../wrapper/interfaces';
-
+import { ProjectResult, PackageDependency } from '../wrapper/interfaces';
 
 export class ProjectValidation {
   protected static requiresProject = false;
@@ -134,18 +133,22 @@ export class ProjectValidation {
         for (const dependencyObj of packageObj.dependencies as JsonMap[]) {
           currentDependencyMap.set(dependencyObj.package as string, dependencyObj.package as string);
         }
-        const correctDependencyList = this.checkDependencies(currentDependencyMap);
-        correctDependencyList.forEach((correctDependency) => {
-          const check = currentDependencyMap.get(correctDependency);
+        const correctDependencyListMap = this.checkDependencies(currentDependencyMap);
+        for (const key of correctDependencyListMap.keys()) {
+          //
+          const check = currentDependencyMap.get(key);
           if (!check) {
             this.result.depCounter += 1;
-            const tableRow = [this.result.depCounter, packageObj.package, correctDependency] as AnyArray;
-            this.result.tableMap.set(
-              JSON.stringify(`${packageObj.package as string}#${correctDependency as string}`),
-              tableRow
-            );
+            const tableRow = [
+              this.result.depCounter,
+              packageObj.package,
+              correctDependencyListMap.get(key).package,
+              correctDependencyListMap.get(key).version,
+              correctDependencyListMap.get(key).index,
+            ] as AnyArray;
+            this.result.tableMap.set(JSON.stringify(`${packageObj.package as string}#${key}`), tableRow);
           }
-        });
+        }
       }
     }
     return this.result;
@@ -155,11 +158,11 @@ export class ProjectValidation {
     if (this.result.tableMap.size > 0) {
       let packagesList: JsonMap[] = ensureArray(this.contents.packageDirectories as JsonMap[]);
       for (const value of this.result.tableMap.values()) {
-        for (const packageObj of packagesList as JsonMap[]) {
-          if(packageObj.package === value[1]){
-            const depObj = {package: value[2], versionNumber: '1.0.0.LATEST'};
+        for (const packageObj of packagesList) {
+          if (packageObj.package === value[1]) {
+            const depObj = { package: value[2], versionNumber: value[3] };
             if (Array.isArray(packageObj.dependencies)) {
-            packageObj.dependencies.push(depObj as {});
+              packageObj.dependencies.splice(value[4] as number, 0, depObj as {});
             }
           }
         }
@@ -169,22 +172,31 @@ export class ProjectValidation {
     return this.result;
   }
 
-  private checkDependencies(depInputMap: Map<string, string>): string[] {
-    let newList: string[] = [];
+  private checkDependencies(depInputMap: Map<string, string>): Map<string, PackageDependency> {
+    let postionIndex = 0;
+    const newListMap = new Map<string, PackageDependency>();
     let packagesList: JsonMap[] = ensureArray(this.contents.packageDirectories as JsonMap[]);
     for (const depInput of depInputMap.values()) {
+      postionIndex += 1;
+      //let packIndex = 0;
       packagesList.forEach((packageObj) => {
+        //packIndex += 1;
         if (depInput === packageObj.package) {
           if (packageObj.dependencies) {
             for (const packageObjDepList of packageObj.dependencies as JsonMap[]) {
-              if (newList.indexOf(packageObjDepList.package as string) === -1) {
-              newList.push(packageObjDepList.package as string);
+              if (newListMap.get(packageObjDepList.package as string) === undefined) {
+                const packageDepObj = {
+                  package: packageObjDepList.package as string,
+                  version: packageObjDepList.versionNumber as string,
+                  index: postionIndex - 1,
+                };
+                newListMap.set(packageObjDepList.package as string, packageDepObj);
               }
             }
           }
         }
       });
     }
-    return newList;
+    return newListMap;
   }
 }
