@@ -2,8 +2,8 @@
 import { MetadataResolver, SourceComponent } from '@salesforce/source-deploy-retrieve';
 import { JsToXml } from '@salesforce/source-deploy-retrieve/lib/src/convert/streams';
 import * as fs from 'graceful-fs';
-import { MetadataResult } from '../wrapper/interfaces';
 import { AnyArray } from '@salesforce/ts-types';
+import { MetadataResult } from '../wrapper/interfaces';
 
 export class MetadataValidation {
   private resolver: MetadataResolver;
@@ -17,7 +17,7 @@ export class MetadataValidation {
       const forceappComponents = this.getComponentsWithChildsFromPaths([sourcedir]);
       const srcComponentMap = this.getComponentsWithChildsFromPaths([targetdir]).map((comp) => this.simpleKey(comp));
       this.forceappComponentsToDelete = forceappComponents.filter(
-        (comp) => srcComponentMap.includes(this.simpleKey(comp)) && comp.type.id !== 'translations'
+        (comp) => srcComponentMap.includes(this.simpleKey(comp))
       );
       this.forceappComponentsToDelete.forEach((comp) => {
         const tableRow = [comp.type.id, comp.fullName] as AnyArray;
@@ -57,12 +57,19 @@ export class MetadataValidation {
           if (component.parent?.name && component.type.xmlElementName) {
             const [x] = this.resolver.getComponentsFromPath(component.xml);
             const content = x.parseXmlSync();
-            if (content[component.parent.name]) {
+            if (
+              content[component.parent.name] &&
+              Array.isArray(content[component.parent.name][component.type.xmlElementName])
+            ) {
               content[component.parent.name][component.type.xmlElementName] = content[component.parent.name][
                 component.type.xmlElementName
               ].filter((child: any) => child.fullName !== component.fullName);
+            } else if (content[component.parent.name]){
+               if(content[component.parent.name][component.type.xmlElementName]["fullName"] === component.fullName){
+                content[component.parent.name] = {};
+              }
             }
-            await fs.promises.writeFile(component.xml, new JsToXml(content).toString());
+           await fs.promises.writeFile(component.xml, new JsToXml(content).read());
           }
         }
       }
