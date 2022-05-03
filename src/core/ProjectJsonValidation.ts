@@ -143,7 +143,7 @@ export class ProjectValidation {
               this.result.depCounter,
               packageObj.package,
               correctDependencyListMap.get(key).package,
-              correctDependencyListMap.get(key).version,
+              correctDependencyListMap.get(key).version ? correctDependencyListMap.get(key).version : '',
               correctDependencyListMap.get(key).index,
             ] as AnyArray;
             this.result.tableMap.set(JSON.stringify(`${packageObj.package as string}#${key}`), tableRow);

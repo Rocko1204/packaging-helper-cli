@@ -81,7 +81,9 @@ export class MetadataValidation {
     for (const path of paths) {
       for (const component of this.resolver.getComponentsFromPath(path)) {
         if (!component.type.children) {
+          if(component["directoryName"] !== 'translations'){
           components.push(component);
+          }
         } else {
           for (const child of component.getChildren()) {
             components.push(child);
